@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cauckaosjgp18"]
+
+[ext_resource type="ArrayMesh" uid="uid://dpodc7pyrs0mt" path="res://models/temp/shop_temp.res" id="1_ynkoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3b0s1"]
+size = Vector3(3.1645508, 2.913086, 1.8509521)
+
+[node name="Shop" type="Area3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_ynkoa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9999619, 0, -0.008726535, 0, 1, 0, 0.008726535, 0, 0.9999619, 0.020263672, 0.37939453, -0.17510986)
+shape = SubResource("BoxShape3D_3b0s1")
