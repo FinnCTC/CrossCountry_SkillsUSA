@@ -2,11 +2,13 @@ extends CharacterBody3D
 
 @export var mouse_sensitivity : float
 @export var movement_speed: int
+@export var max_movement_speed: int
+@export var acceleration: float
+@export var gravity: float
 
 var twist_input := 0.0
 var pitch_input := 0.0
 
-const gravity := 9.8
 
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
@@ -27,7 +29,18 @@ func _process(delta: float) -> void:
 	
 	var movement_vector = (forward * input.z) + (right * input.x)
 	
-	velocity = movement_vector * movement_speed
+	#handles speeding up and slowing down in movement
+	if input:
+		velocity.x = move_toward(velocity.x,movement_vector.x * max_movement_speed, acceleration)
+		velocity.z = move_toward(velocity.z, movement_vector.z * max_movement_speed, acceleration)
+	else:
+		velocity.x = move_toward(velocity.x, 0, acceleration)
+		velocity.z = move_toward(velocity.z, 0, acceleration)
+	
+	#JUMP
+	if Input.is_action_just_pressed("move_jump"):
+		velocity.y = 30
+	
 	
 	if not is_on_floor():
 		velocity.y -= gravity
