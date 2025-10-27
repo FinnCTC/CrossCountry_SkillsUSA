@@ -10,7 +10,10 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
 mouse_sensitivity = 0.001
-movement_speed = 2
+movement_speed = 4
+max_movement_speed = 6
+acceleration = 0.8
+gravity = 0.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_onrkg")
