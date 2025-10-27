@@ -1,13 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1761586218
+::res://::1761586557
 ::res://models/::1761240102
 ::res://models/temp/::1761247838
 player_TEMP.glb::PackedScene::913920452174243765::1761240112::1761247838::1::::<><><>0<>0<>472fdce8d6cf667173b76fed16f562a1<>res://.godot/imported/player_TEMP.glb-c4a1ec92e59da5df939d36031af6b568.scn::
 ::res://scenes/::1761586207
-::res://scenes/placeholders/::1761586209
-placeHolder.tscn::PackedScene::2677229387698372625::1761586209::0::1::::<><><>0<>0<><>::uid://cgsd6gur8xyj1::::res://player.tscn
+::res://scenes/placeholders/::1761586262
+placeHolder.tscn::PackedScene::2677229387698372625::1761586262::0::1::::<><><>0<>0<><>::uid://cgsd6gur8xyj1::::res://scenes/player/player.tscn
 ::res://scenes/player/::1761586209
 player.gd::GDScript::3766689379002678579::1761161805::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.tscn::PackedScene::5231371086230446100::1761586209::0::1::::<><><>0<>0<><>::uid://btwu3ai0n700n::::res://scenes/player/player.gd
-::res://sprites/::1761586217
+::res://sprites/::1761586218
 icon.svg::CompressedTexture2D::340580582392588514::1761156315::1761586218::1::::<><><>0<>0<>a23e7a63b25e6fd50df8cda2f71bb63c<>res://.godot/imported/icon.svg-964d8c66fbd3bda40c44ca195472a8e1.ctex::

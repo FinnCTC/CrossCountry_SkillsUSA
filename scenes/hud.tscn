@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bojrtj0jsmjf0"]
+
+[ext_resource type="Script" uid="uid://x3c6b6mqccr4" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toqtt"]
+bg_color = Color(0, 0, 0, 0.43529412)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ahhtf")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 269.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_toqtt")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 18.0
+offset_right = 136.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 25
+text = "# of Coins:"
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_left = 165.0
+offset_top = 2.0
+offset_right = 223.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 45
+text = "##"

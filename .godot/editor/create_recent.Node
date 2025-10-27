@@ -1,4 +1,9 @@
-MeshInstance3D
-Camera3D
+Label
+Panel
+CanvasLayer
 Node3D
+CollisionShape3D
+MeshInstance3D
+Area3D
+Camera3D
 RigidBody3D
