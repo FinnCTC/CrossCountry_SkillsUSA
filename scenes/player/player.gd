@@ -20,6 +20,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	#MOVEMENT
+	
+	#Horizontal movement
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_foward", "move_back")
@@ -37,11 +39,19 @@ func _process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, acceleration)
 		velocity.z = move_toward(velocity.z, 0, acceleration)
 	
-	#JUMP
-	if Input.is_action_just_pressed("move_jump"):
+	#Jump
+	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = 30
 	
+	#Glide ability
 	
+	var glide_speed = -2
+	
+	if Input.is_action_pressed("move_jump") and not is_on_floor():
+		if velocity.y < glide_speed:
+			velocity.y = glide_speed
+	
+	#gravity
 	if not is_on_floor():
 		velocity.y -= gravity
 	
