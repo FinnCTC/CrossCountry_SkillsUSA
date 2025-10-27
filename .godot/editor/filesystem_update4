@@ -1,8 +1,0 @@
-res://scenes/coin.tscn
-res://scripts/coin.gd
-res://scenes/placeholders/placeHolder.tscn
-res://global.gd
-res://scenes/placeholders/place_holder.gd
-res://scenes/player/player.tscn
-res://scenes/hud.tscn
-res://scripts/hud.gd
