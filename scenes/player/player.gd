@@ -9,6 +9,12 @@ extends CharacterBody3D
 var twist_input := 0.0
 var pitch_input := 0.0
 
+const FRAME_TIME :=  0.17
+
+var time_accumulator := 0.0
+var last_animation := ""
+var animation_position := 0.0
+
 
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot

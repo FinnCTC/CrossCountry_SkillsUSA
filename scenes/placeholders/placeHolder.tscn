@@ -32,7 +32,7 @@ script = ExtResource("1_r04ap")
 environment = SubResource("Environment_e6daj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.2649597, -0.42402408, 0, -0.84804803, 0.5299193, -0.50000006, 0.45892358, 0.73443115, 0, 0, 0)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -93,4 +93,4 @@ hud = NodePath("../../HUD")
 [node name="HUD" parent="." instance=ExtResource("4_paoiq")]
 
 [node name="Shop" parent="." instance=ExtResource("5_fumy7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.972484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76609516, -9.972484)

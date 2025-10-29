@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjahnb5lhq8vh"]
+
+[ext_resource type="Script" uid="uid://dlv214f4ckqo1" path="res://scenes/scene_transition.gd" id="1_0wykx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovque"]
+
+[node name="SceneTransition" type="Area3D"]
+script = ExtResource("1_0wykx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ovque")
+debug_color = Color(0.98039216, 0, 0.39215687, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
