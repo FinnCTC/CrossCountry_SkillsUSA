@@ -1,8 +1,4 @@
 res://scenes/player/player.tscn
 res://shaders/PostProcess.gdshader
 res://shaders/animatedMat.gdshader
-res://scenes/player/player.gd
-res://scenes/placeholders/placeHolder.tscn
 res://shaders/animatedMat.tres
-res://models/temp/player_temp.res
-res://scenes/coin.tscn
