@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddmtfbio36j7y"]
+
+[ext_resource type="PackedScene" uid="uid://b40ga5uvjlkeu" path="res://models/temp/KEISHI_WOMats.glb" id="1_wsft2"]
+[ext_resource type="Material" uid="uid://rierpc3tnyjl" path="res://shaders/animatedMat.tres" id="2_f7pq1"]
+
+[node name="KEISHI_WOMats" instance=ExtResource("1_wsft2")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.71392775, -0.00028006936, -0.00040487948, 0.7002192)
+bones/0/scale = Vector3(1, 1, 0.99999994)
+bones/1/scale = Vector3(1, 1, 0.99999994)
+bones/2/position = Vector3(0, -2.5887048, 0)
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.504769, -0.0152721815, 0, 0.0152721815, 0.504769, 0, 0, 0, 0.505, 0.0024700165, 0, -0.023111165)
+surface_material_override/0 = ExtResource("2_f7pq1")

@@ -1,9 +1,9 @@
-MeshInstance3D
-AnimationPlayer
 AnimationTree
+CollisionShape3D
+AnimationPlayer
+MeshInstance3D
 ColorRect
 CanvasLayer
-CollisionShape3D
 Area3D
 Label
 Panel

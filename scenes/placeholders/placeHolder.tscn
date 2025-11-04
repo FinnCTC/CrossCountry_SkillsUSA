@@ -45,7 +45,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_e6daj")
 
 [node name="Player" parent="." instance=ExtResource("1_3q16k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2780428, -2)
 top_level = true
 
 [node name="Coins" type="Node3D" parent="."]

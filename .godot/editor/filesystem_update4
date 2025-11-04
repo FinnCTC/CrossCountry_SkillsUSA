@@ -1,4 +1,3 @@
-res://scenes/player/player.tscn
+res://models/k.tscn
 res://shaders/PostProcess.gdshader
 res://shaders/animatedMat.gdshader
-res://shaders/animatedMat.tres
