@@ -1,16 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddmtfbio36j7y"]
+[gd_scene load_steps=11 format=3 uid="uid://ddmtfbio36j7y"]
 
 [ext_resource type="PackedScene" uid="uid://b40ga5uvjlkeu" path="res://models/temp/KEISHI_WOMats.glb" id="1_wsft2"]
 [ext_resource type="Material" uid="uid://rierpc3tnyjl" path="res://shaders/animatedMat.tres" id="2_f7pq1"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsft2"]
+animation = &"Anim_Glide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f7pq1"]
+animation = &"Anim_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fx1t"]
+animation = &"Anim_Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tqfp"]
+animation = &"Anim_Run"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_wsft2"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_f7pq1"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ttn3y"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wcoht"]
+graph_offset = Vector2(-649.4493, 181.89815)
+nodes/output/position = Vector2(420, 140)
+nodes/ANIM_Idle/node = SubResource("AnimationNodeAnimation_f7pq1")
+nodes/ANIM_Idle/position = Vector2(-360, 180)
+nodes/ANIM_Run/node = SubResource("AnimationNodeAnimation_7tqfp")
+nodes/ANIM_Run/position = Vector2(-280, 360)
+nodes/ANIM_Jump/node = SubResource("AnimationNodeAnimation_3fx1t")
+nodes/ANIM_Jump/position = Vector2(-80, 400)
+nodes/ANIM_Glide/node = SubResource("AnimationNodeAnimation_wsft2")
+nodes/ANIM_Glide/position = Vector2(120, 420)
+nodes/Run/node = SubResource("AnimationNodeBlend2_ttn3y")
+nodes/Run/position = Vector2(-100, 140)
+nodes/Jump/node = SubResource("AnimationNodeBlend2_f7pq1")
+nodes/Jump/position = Vector2(80, 120)
+nodes/Glide/node = SubResource("AnimationNodeBlend2_wsft2")
+nodes/Glide/position = Vector2(240, 120)
+node_connections = [&"output", 0, &"Glide", &"Run", 0, &"ANIM_Idle", &"Run", 1, &"ANIM_Run", &"Jump", 0, &"Run", &"Jump", 1, &"ANIM_Jump", &"Glide", 0, &"Jump", &"Glide", 1, &"ANIM_Glide"]
+
 [node name="KEISHI_WOMats" instance=ExtResource("1_wsft2")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/rotation = Quaternion(-0.71392775, -0.00028006936, -0.00040487948, 0.7002192)
+bones/0/rotation = Quaternion(-0.7139277, -0.0002800694, -0.0004048795, 0.7002193)
 bones/0/scale = Vector3(1, 1, 0.99999994)
+bones/1/rotation = Quaternion(-0.717965, -7.290882e-17, 7.5201206e-17, 0.6960792)
 bones/1/scale = Vector3(1, 1, 0.99999994)
-bones/2/position = Vector3(0, -2.5887048, 0)
+bones/2/position = Vector3(0.00017619431, -2.592281, 0.00043130643)
+bones/2/rotation = Quaternion(-0.00061704515, 9.585904e-05, -5.1814317e-05, 0.9999999)
 
 [node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.504769, -0.0152721815, 0, 0.0152721815, 0.504769, 0, 0, 0, 0.505, 0.0024700165, 0, -0.023111165)
 surface_material_override/0 = ExtResource("2_f7pq1")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_wcoht")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Run/blend_amount = 0.0
+parameters/Jump/blend_amount = 0.0
+parameters/Glide/blend_amount = 0.0

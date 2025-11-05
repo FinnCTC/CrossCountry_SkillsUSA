@@ -6,6 +6,15 @@ extends CharacterBody3D
 @export var acceleration: float
 @export var gravity: float
 
+enum {IDLE, RUN, GLIDE}
+var curAnim = IDLE
+
+
+
+@onready var anim_tree = $KEISHI_WOMats/AnimationTree
+
+
+
 var twist_input := 0.0
 var pitch_input := 0.0
 
@@ -15,7 +24,6 @@ var time_accumulator := 0.0
 var last_animation := ""
 var animation_position := 0.0
 
-
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
 
@@ -23,6 +31,23 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
+
+func handle_animations(curAnim):
+	match curAnim:
+		IDLE:
+			anim_tree.set("parameters/Transition/transition_request", "Idle")
+		RUN:
+			anim_tree.set("parameters/Transition/transition_request", "Run")
+		GLIDE:
+			glide()
+
+func jump():
+	anim_tree.set("parameters/Jump/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+func glide():
+	anim_tree.set("parameters/Glide_Transition/transition_request", "Glide_S")
+	anim_tree.set("parameters/Glide_Transition/transition_request", "Glide")
+	anim_tree.set("parameters/Transition/transition_request", "Glide")
+	
 func _process(delta: float) -> void:
 	
 	#MOVEMENT
@@ -41,13 +66,18 @@ func _process(delta: float) -> void:
 	if input:
 		velocity.x = move_toward(velocity.x,movement_vector.x * max_movement_speed, acceleration)
 		velocity.z = move_toward(velocity.z, movement_vector.z * max_movement_speed, acceleration)
+		if is_on_floor():
+			handle_animations(RUN)
 	else:
 		velocity.x = move_toward(velocity.x, 0, acceleration)
 		velocity.z = move_toward(velocity.z, 0, acceleration)
+		if is_on_floor():
+			handle_animations(IDLE)
 	
 	#Jump
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = 30
+		jump()
 	
 	#Glide ability
 	
@@ -56,6 +86,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_jump") and not is_on_floor():
 		if velocity.y < glide_speed:
 			velocity.y = glide_speed
+			handle_animations(GLIDE)
 	
 	#gravity
 	if not is_on_floor():
@@ -77,6 +108,8 @@ func _process(delta: float) -> void:
 	pitch_input = 0.0
 	
 	move_and_slide()
+	
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

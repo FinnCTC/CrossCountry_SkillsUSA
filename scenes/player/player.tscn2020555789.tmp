@@ -71,23 +71,16 @@ animation = &"Anim_Run"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ugbui"]
 animation = &"Anim_Glide_Start"
 
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_fcs02"]
-xfade_time = 0.2
-input_0/name = "Glide_S"
-input_0/auto_advance = false
-input_0/break_loop_at_end = false
-input_0/reset = true
-input_1/name = "Glide"
-input_1/auto_advance = false
-input_1/break_loop_at_end = false
-input_1/reset = true
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_fcs02"]
+fadein_time = 0.1
+fadeout_time = 0.1
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_gx1jg"]
 fadein_time = 0.1
 fadeout_time = 0.1
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_gx1jg"]
-xfade_time = 0.2
+xfade_time = 0.5
 input_0/name = "Idle"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
@@ -102,8 +95,8 @@ input_2/break_loop_at_end = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wcoht"]
-graph_offset = Vector2(-1084.0979, 280.82727)
-nodes/output/position = Vector2(540, 140)
+graph_offset = Vector2(-322.40845, 63.05255)
+nodes/output/position = Vector2(540, 60)
 nodes/ANIM_Idle/node = SubResource("AnimationNodeAnimation_f7pq1")
 nodes/ANIM_Idle/position = Vector2(-360, 120)
 nodes/ANIM_Run/node = SubResource("AnimationNodeAnimation_7tqfp")
@@ -111,16 +104,16 @@ nodes/ANIM_Run/position = Vector2(-360, 300)
 nodes/ANIM_Jump/node = SubResource("AnimationNodeAnimation_3fx1t")
 nodes/ANIM_Jump/position = Vector2(80, 520)
 nodes/Transition/node = SubResource("AnimationNodeTransition_gx1jg")
-nodes/Transition/position = Vector2(-60, 180)
+nodes/Transition/position = Vector2(-100, 100)
 nodes/Jump/node = SubResource("AnimationNodeOneShot_gx1jg")
-nodes/Jump/position = Vector2(240, 140)
+nodes/Jump/position = Vector2(200, 80)
 nodes/ANIM_Glide/node = SubResource("AnimationNodeAnimation_gx1jg")
-nodes/ANIM_Glide/position = Vector2(-920, 720)
-nodes/Glide_Transition/node = SubResource("AnimationNodeTransition_fcs02")
-nodes/Glide_Transition/position = Vector2(-380, 520)
+nodes/ANIM_Glide/position = Vector2(-360, 480)
+nodes/GlideSTART/node = SubResource("AnimationNodeOneShot_fcs02")
+nodes/GlideSTART/position = Vector2(380, 60)
 nodes/ANIM_S_Glide/node = SubResource("AnimationNodeAnimation_ugbui")
-nodes/ANIM_S_Glide/position = Vector2(-940, 440)
-node_connections = [&"output", 0, &"Jump", &"Transition", 0, &"ANIM_Idle", &"Transition", 1, &"ANIM_Run", &"Transition", 2, &"Glide_Transition", &"Jump", 0, &"Transition", &"Jump", 1, &"ANIM_Jump", &"Glide_Transition", 0, &"ANIM_S_Glide", &"Glide_Transition", 1, &"ANIM_Glide"]
+nodes/ANIM_S_Glide/position = Vector2(260, 520)
+node_connections = [&"output", 0, &"GlideSTART", &"Transition", 0, &"ANIM_Idle", &"Transition", 1, &"ANIM_Run", &"Transition", 2, &"ANIM_Glide", &"Jump", 0, &"Transition", &"Jump", 1, &"ANIM_Jump", &"GlideSTART", 0, &"Jump", &"GlideSTART", 1, &"ANIM_S_Glide"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gmlin"]
 flip_faces = true
@@ -165,8 +158,8 @@ bones/2/name = "Bone"
 bones/2/parent = -1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5887048, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(0.01646541, -2.9229085, 0.040305153)
-bones/2/rotation = Quaternion(-0.057665173, 0.008958468, -0.0048422734, 0.9982841)
+bones/2/position = Vector3(0.015070438, -2.8945942, 0.036890443)
+bones/2/rotation = Quaternion(-0.05278639, 0.008200534, -0.004432592, 0.9985624)
 bones/2/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="MeshInstance3D" parent="KEISHI_WOMats/Armature/Skeleton3D"]
@@ -190,9 +183,9 @@ parameters/Transition/current_index = 0
 parameters/Jump/active = false
 parameters/Jump/internal_active = false
 parameters/Jump/request = 0
-parameters/Glide_Transition/current_state = ""
-parameters/Glide_Transition/transition_request = ""
-parameters/Glide_Transition/current_index = -1
+parameters/GlideSTART/active = false
+parameters/GlideSTART/internal_active = false
+parameters/GlideSTART/request = 0
 
 [node name="TwistPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
