@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bee4tu4gru5on"]
+[gd_scene load_steps=12 format=3 uid="uid://bee4tu4gru5on"]
 
 [ext_resource type="PackedScene" uid="uid://cgsd6gur8xyj1" path="res://scenes/player/player.tscn" id="1_3q16k"]
 [ext_resource type="Script" uid="uid://dq2wyoqh2ijsk" path="res://scenes/placeholders/place_holder.gd" id="1_r04ap"]
 [ext_resource type="PackedScene" uid="uid://db80ed2tkylf" path="res://scenes/coin.tscn" id="2_viwv0"]
 [ext_resource type="PackedScene" uid="uid://bojrtj0jsmjf0" path="res://scenes/hud.tscn" id="4_paoiq"]
 [ext_resource type="PackedScene" uid="uid://cauckaosjgp18" path="res://scenes/placeholders/shop.tscn" id="5_fumy7"]
+[ext_resource type="PackedScene" uid="uid://bsdy4m1wjv8xl" path="res://models/temp/temp_fan.tscn" id="6_ewjci"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rrxa4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -94,3 +95,6 @@ hud = NodePath("../../HUD")
 
 [node name="Shop" parent="." instance=ExtResource("5_fumy7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76609516, -9.972484)
+
+[node name="TempFan" parent="." instance=ExtResource("6_ewjci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.073145)

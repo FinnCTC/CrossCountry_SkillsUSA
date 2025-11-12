@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsdy4m1wjv8xl"]
+
+[ext_resource type="Script" uid="uid://ci0ndappto2br" path="res://scripts/fan.gd" id="1_2t2fx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k2i6i"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_6xdne"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2t2fx"]
+height = 4.224121
+radius = 2.4003906
+
+[node name="TempFan" type="Area3D"]
+script = ExtResource("1_2t2fx")
+
+[node name="Blades" type="Area3D" parent="."]
+
+[node name="Blade_1" type="MeshInstance3D" parent="Blades"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.255, 0, 1, -1.1146404e-08, 0, 0, -0.9526806)
+mesh = SubResource("CapsuleMesh_k2i6i")
+skeleton = NodePath("../..")
+
+[node name="Blade_2" type="MeshInstance3D" parent="Blades"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.255, 0, 1, -1.1146404e-08, 0, 0, 0.6957178)
+mesh = SubResource("CapsuleMesh_k2i6i")
+skeleton = NodePath("../..")
+
+[node name="Blade_3" type="MeshInstance3D" parent="Blades"]
+transform = Transform3D(-4.371139e-08, 1, -1.1146404e-08, 0, -4.371139e-08, -0.255, -1, -4.371139e-08, 4.872248e-16, 1.0140857, 0, -0.13126326)
+mesh = SubResource("CapsuleMesh_k2i6i")
+skeleton = NodePath("../..")
+
+[node name="Blade_4" type="MeshInstance3D" parent="Blades"]
+transform = Transform3D(-4.371139e-08, 1, -1.1146404e-08, 0, -4.371139e-08, -0.255, -1, -4.371139e-08, 4.872248e-16, -0.99025714, 0, -0.13126326)
+mesh = SubResource("CapsuleMesh_k2i6i")
+skeleton = NodePath("../..")
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.67, 0, 0, 0, 2.67, 0, 0, 0, 2.67, 0, -0.45420122, 0)
+mesh = SubResource("TorusMesh_6xdne")
+
+[node name="Air" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5932937, 0)
+shape = SubResource("CylinderShape3D_2t2fx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

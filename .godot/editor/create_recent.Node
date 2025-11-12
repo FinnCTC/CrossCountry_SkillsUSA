@@ -1,12 +1,14 @@
-AnimationTree
+Label
+Node3D
+CSGBox3D
 CollisionShape3D
-AnimationPlayer
+Sprite3D
+StaticBody3D
 MeshInstance3D
+Label3D      - Matches the "text" keyword.
+Area3D
+AnimationTree
+AnimationPlayer
 ColorRect
 CanvasLayer
-Area3D
-Label
 Panel
-Node3D
-Camera3D
-RigidBody3D

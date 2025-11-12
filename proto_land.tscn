@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://6biqschifkkt"]
+
+[ext_resource type="PackedScene" uid="uid://b64epfgyyd3n6" path="res://scenes/placeholders/proto_floor.tscn" id="1_8d4af"]
+[ext_resource type="PackedScene" uid="uid://cgsd6gur8xyj1" path="res://scenes/player/player.tscn" id="1_cqmma"]
+[ext_resource type="Script" uid="uid://bq4shlha20roq" path="res://proto_land.gd" id="1_kpixb"]
+[ext_resource type="PackedScene" uid="uid://bojrtj0jsmjf0" path="res://scenes/hud.tscn" id="3_14l08"]
+[ext_resource type="PackedScene" uid="uid://db80ed2tkylf" path="res://scenes/coin.tscn" id="5_kpixb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqmma"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xgnsd"]
+sky_material = SubResource("ProceduralSkyMaterial_cqmma")
+
+[sub_resource type="Environment" id="Environment_8d4af"]
+background_mode = 2
+sky = SubResource("Sky_xgnsd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_kpixb")
+
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="ProtoFloor" parent="Enviroment" instance=ExtResource("1_8d4af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_cqmma")]
+transform = Transform3D(0.35994273, 0, -0.0064210757, 0, 0.36, 0, 0.0064210757, 0, 0.35994273, 0, 0.44782603, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8d4af")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.2649597, -0.42402408, 0, -0.84804803, 0.5299193, -0.50000006, 0.45892358, 0.73443115, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="coin1" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("5_kpixb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2120786, 0)
+hud = NodePath("../../HUD")
+
+[node name="HUD" parent="." instance=ExtResource("3_14l08")]

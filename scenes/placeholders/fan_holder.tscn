@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl1nntxnylqay"]
+
+[ext_resource type="PackedScene" uid="uid://bsdy4m1wjv8xl" path="res://models/temp/temp_fan.tscn" id="1_7sekr"]
+
+[node name="FanHolder" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7167969, 0)
+use_collision = true
+size = Vector3(10, 0.6738281, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7021484, 3.724031, 0)
+size = Vector3(1.0145874, 8.423462, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.09264761, 0.09914386, 0.9907507, 0.47517517, 0.8700099, -0.13149625, -0.875, 0.48296294, 0.033493638, 0.65487653, 3.3121407, 6.8887644)
+size = Vector3(1.0145874, 7.882141, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.09264762, 0.09914386, 0.9907508, -0.45839795, 0.88755846, -0.045951523, -0.88390493, -0.4499008, 0.1276775, 0.65487653, 3.3121407, -6.474535)
+size = Vector3(1.0145874, 7.882141, 10)
+
+[node name="TempFan" parent="CSGBox3D" instance=ExtResource("1_7sekr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63471603, 0)

@@ -2,7 +2,6 @@ res://scenes/player/player.gd
 res://scenes/player/player.tscn
 res://shaders/PostProcess.gdshader
 res://shaders/animatedMat.gdshader
-res://models/Anims/keishi/ANIM_K_Glide.res
-res://models/Anims/keishi/ANIM_K_Idle.res
-res://models/Anims/keishi/ANIM_K_Run.res
-res://models/Anims/keishi/ANIM_K_Glide_START.res
+res://scenes/hud.tscn
+res://global.gd
+res://scripts/hud.gd

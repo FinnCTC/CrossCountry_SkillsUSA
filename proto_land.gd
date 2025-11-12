@@ -1,12 +1,11 @@
-extends CanvasLayer
+extends Node3D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CoinsLabel.text = str(0)
+	Global.coins = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.debug_value:
-		$Label2.text = str(Global.debug_value)
+	pass
