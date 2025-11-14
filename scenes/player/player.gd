@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var acceleration: float
 @export var gravity: float
 
+@onready var anim_player = $KEISHI_WOMats/AnimationPlayer
+
 @onready var camera = $TwistPivot/PitchPivot/Camera3D
 
 enum {IDLE, RUN, GLIDE, FALL}
@@ -27,13 +29,12 @@ var last_animation := ""
 var animation_position := 0.0
 
 
-
-
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 
 
 
@@ -109,6 +110,8 @@ func _process(delta: float) -> void:
 			velocity.y = glide_speed
 		if Global.fanTime:
 			velocity.y = glide_speed * -25
+			if Global.fanRotation != 0.0:
+				velocity.x = Global.fanRotation * -1
 		handle_animations(GLIDE)
 	if Input.is_action_just_released("move_jump") and not is_on_floor() and jump_button_released:
 		glide_End()
@@ -151,3 +154,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
 			$KEISHI_WOMats/Armature/Skeleton3D/Cylinder.rotate_y(twist_input)
+
+
+func _on_oob_body_entered(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://proto_land.tscn")

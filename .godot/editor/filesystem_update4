@@ -1,7 +1,6 @@
+res://scripts/fan.gd
 res://scenes/player/player.gd
-res://scenes/player/player.tscn
+res://scenes/placeholders/proto_floor.tscn
 res://shaders/PostProcess.gdshader
 res://shaders/animatedMat.gdshader
-res://scenes/hud.tscn
-res://global.gd
-res://scripts/hud.gd
+res://shaders/outline.gdshader

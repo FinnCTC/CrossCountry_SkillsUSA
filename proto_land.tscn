@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6biqschifkkt"]
+[gd_scene load_steps=10 format=3 uid="uid://6biqschifkkt"]
 
 [ext_resource type="PackedScene" uid="uid://b64epfgyyd3n6" path="res://scenes/placeholders/proto_floor.tscn" id="1_8d4af"]
 [ext_resource type="PackedScene" uid="uid://cgsd6gur8xyj1" path="res://scenes/player/player.tscn" id="1_cqmma"]
@@ -19,7 +19,11 @@ sky = SubResource("Sky_xgnsd")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpixb"]
+size = Vector3(253.37808, 23.142029, 238.61359)
+
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 54.619793, 0)
 script = ExtResource("1_kpixb")
 
 [node name="Enviroment" type="Node3D" parent="."]
@@ -43,4 +47,21 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2120786, 0)
 hud = NodePath("../../HUD")
 
+[node name="coin2" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("5_kpixb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3723822, 14.531092, 0.058054447)
+hud = NodePath("../../HUD")
+
+[node name="coin3" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("5_kpixb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.172109, 2.2120786, 0)
+hud = NodePath("../../HUD")
+
 [node name="HUD" parent="." instance=ExtResource("3_14l08")]
+
+[node name="OOB" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -48.18347, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OOB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5950165, 3.86734, -28.88087)
+shape = SubResource("BoxShape3D_kpixb")
+
+[connection signal="body_entered" from="OOB" to="Player" method="_on_oob_body_entered"]

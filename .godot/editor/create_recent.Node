@@ -1,12 +1,12 @@
-Label
-Node3D
 CSGBox3D
 CollisionShape3D
+Area3D
+Label
+Node3D
 Sprite3D
 StaticBody3D
 MeshInstance3D
 Label3D      - Matches the "text" keyword.
-Area3D
 AnimationTree
 AnimationPlayer
 ColorRect

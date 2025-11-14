@@ -1,9 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://cgsd6gur8xyj1"]
+[gd_scene load_steps=32 format=3 uid="uid://cgsd6gur8xyj1"]
 
 [ext_resource type="Script" uid="uid://btwu3ai0n700n" path="res://scenes/player/player.gd" id="1_4flbx"]
-[ext_resource type="Shader" uid="uid://dbfj1ev4ty42n" path="res://shaders/PostProcess.gdshader" id="2_dovo2"]
 [ext_resource type="ArrayMesh" uid="uid://d0kj0ubngvq0c" path="res://models/keishi.res" id="2_gx1jg"]
-[ext_resource type="Material" uid="uid://rierpc3tnyjl" path="res://shaders/animatedMat.tres" id="3_ugbui"]
 [ext_resource type="Animation" uid="uid://c4cg2rgpgdaid" path="res://models/Anims/keishi/ANIM_K_Glide.res" id="4_fcs02"]
 [ext_resource type="Animation" uid="uid://byeb2500e5psy" path="res://models/Anims/keishi/ANIM_K_Glide_END.res" id="5_myrg7"]
 [ext_resource type="Animation" uid="uid://bkc6nrnsuhneb" path="res://models/Anims/keishi/ANIM_K_Glide_START.res" id="6_kvlxm"]
@@ -98,7 +96,7 @@ input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wcoht"]
-graph_offset = Vector2(-801.6128, 122.67328)
+graph_offset = Vector2(-667.3359, 48.178276)
 nodes/output/position = Vector2(660, 180)
 nodes/ANIM_Idle/node = SubResource("AnimationNodeAnimation_f7pq1")
 nodes/ANIM_Idle/position = Vector2(-360, 120)
@@ -109,31 +107,16 @@ nodes/ANIM_Jump/position = Vector2(100, 640)
 nodes/Transition/node = SubResource("AnimationNodeTransition_gx1jg")
 nodes/Transition/position = Vector2(-60, 200)
 nodes/Jump/node = SubResource("AnimationNodeOneShot_gx1jg")
-nodes/Jump/position = Vector2(160, 320)
+nodes/Jump/position = Vector2(380, 120)
 nodes/GlideMachine/node = SubResource("AnimationNodeStateMachine_8ydkj")
 nodes/GlideMachine/position = Vector2(-820, 460)
 nodes/Glide_End/node = SubResource("AnimationNodeOneShot_fcs02")
-nodes/Glide_End/position = Vector2(160, 0)
+nodes/Glide_End/position = Vector2(160, 180)
 nodes/ANIM_Glide_End/node = SubResource("AnimationNodeAnimation_ugbui")
 nodes/ANIM_Glide_End/position = Vector2(-40, 620)
 nodes/ANIM_Fall/node = SubResource("AnimationNodeAnimation_myrg7")
-nodes/ANIM_Fall/position = Vector2(-260, 420)
+nodes/ANIM_Fall/position = Vector2(-480, 580)
 node_connections = [&"output", 0, &"Jump", &"Transition", 0, &"ANIM_Idle", &"Transition", 1, &"ANIM_Run", &"Transition", 2, &"GlideMachine", &"Transition", 3, &"ANIM_Fall", &"Jump", 0, &"Glide_End", &"Jump", 1, &"ANIM_Jump", &"Glide_End", 0, &"Transition", &"Glide_End", 1, &"ANIM_Glide_End"]
-
-[sub_resource type="Animation" id="Animation_gx1jg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Cylinder:blend_shapes/Open")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_kvlxm"]
 resource_name = "Anim_Fall"
@@ -181,6 +164,21 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0.33333334, 1, 0.049229257, 2.0704618e-25, -3.3741832e-17, 0.9987875)
 
+[sub_resource type="Animation" id="Animation_gx1jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Cylinder:blend_shapes/Open")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60l7h"]
 _data = {
 &"Anim_Fall": SubResource("Animation_kvlxm"),
@@ -195,14 +193,6 @@ _data = {
 &"Anim_Stop_Run": ExtResource("12_ioxgp"),
 &"RESET": SubResource("Animation_gx1jg")
 }
-
-[sub_resource type="QuadMesh" id="QuadMesh_gmlin"]
-flip_faces = true
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvxji"]
-render_priority = 0
-shader = ExtResource("2_dovo2")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmlin"]
 
@@ -239,16 +229,15 @@ bones/2/name = "Bone"
 bones/2/parent = -1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5887048, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(0.0061887116, -2.714319, 0.015149147)
-bones/2/rotation = Quaternion(-0.021682037, 0.0033683723, -0.0018206891, 0.99975765)
+bones/2/position = Vector3(0.006198066, -2.714509, 0.015172046)
+bones/2/rotation = Quaternion(-0.021714814, 0.003373464, -0.0018234414, 0.9997569)
 bones/2/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder" type="MeshInstance3D" parent="KEISHI_WOMats/Armature/Skeleton3D"]
-transform = Transform3D(0.5121006, 0, 0, 0, 0.5121006, 0, 0, 0, 0.51210034, 0, 0, 0)
+transform = Transform3D(0.5121004, 0, -1.8626451e-09, 0, 0.5121006, 0, 0, 0, 0.51210016, 0, 0, 0)
 mesh = ExtResource("2_gx1jg")
 skin = SubResource("Skin_qt0k6")
 blend_shapes/Open = 0.0
-surface_material_override/0 = ExtResource("3_ugbui")
 
 [node name="AnimationTree" type="AnimationTree" parent="KEISHI_WOMats"]
 tree_root = SubResource("AnimationNodeBlendTree_wcoht")
@@ -278,13 +267,8 @@ transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.984
 
 [node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+transform = Transform3D(1.0000001, -2.3283064e-10, -1.8626451e-09, 2.3283064e-10, 1.0000001, 4.4703484e-08, 3.7252903e-09, -5.9604645e-08, 1.0000001, 3.7252903e-09, -5.9604645e-08, 3.000001)
 current = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TwistPivot/PitchPivot/Camera3D"]
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_gmlin")
-surface_material_override/0 = SubResource("ShaderMaterial_lvxji")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gmlin")

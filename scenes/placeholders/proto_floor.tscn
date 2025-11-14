@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b64epfgyyd3n6"]
+[gd_scene load_steps=6 format=3 uid="uid://b64epfgyyd3n6"]
 
 [ext_resource type="PackedScene" uid="uid://bl1nntxnylqay" path="res://scenes/placeholders/fan_holder.tscn" id="1_ea5aa"]
 [ext_resource type="PackedScene" uid="uid://dijtvwcbsosba" path="res://scenes/placeholders/ramp.tscn" id="2_xxv7g"]
+[ext_resource type="PackedScene" uid="uid://bsdy4m1wjv8xl" path="res://models/temp/temp_fan.tscn" id="3_c7cni"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wca2j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6pyq"]
+next_pass = SubResource("ShaderMaterial_wca2j")
 
 [node name="ProtoFloor" type="Node3D"]
 
@@ -9,6 +15,18 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10864258, 0)
 use_collision = true
 size = Vector3(45, 0.78271484, 45)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9964409, 12.016035, -45.783707)
+use_collision = true
+size = Vector3(30.175903, 9.688232, 24.916504)
+material = SubResource("StandardMaterial3D_r6pyq")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3126516, -3.1464846, 44.198948)
+use_collision = true
+size = Vector3(28.485413, 7, 24.916504)
+material = SubResource("StandardMaterial3D_r6pyq")
 
 [node name="FanHolder" parent="CSGBox3D" instance=ExtResource("1_ea5aa")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -15.144336, 1.5547347, 0)
@@ -19,3 +37,48 @@ size = Vector3(4.187622, 1.7280273, 5.510742)
 
 [node name="Ramp" parent="CSGBox3D" instance=ExtResource("2_xxv7g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.8111445, 0)
+
+[node name="TempFan" parent="CSGBox3D" instance=ExtResource("3_c7cni")]
+transform = Transform3D(0.675, 0, 0, 0, 0.675, 0, 0, 0, 0.675, 1.5527849, 10.324423, 0)
+
+[node name="TempFan2" parent="CSGBox3D" instance=ExtResource("3_c7cni")]
+transform = Transform3D(0.47729704, 0.47729704, 0, -0.47729704, 0.47729704, 0, 0, 0, 0.67499995, -2.9122162, 3.5988712, 40.3825)
+
+[node name="TempFan3" parent="CSGBox3D" instance=ExtResource("3_c7cni")]
+transform = Transform3D(0.58456707, -0.33749995, 0, 0.33749995, 0.58456707, 0, 0, 0, 0.67499995, 15.070866, 3.5988712, 40.3825)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.04978, 0.07172346, 24.06911)
+size = Vector3(3.8762207, 0.63183594, 3.7120361)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.930324, 0.6191497, 25.061024)
+size = Vector3(0.96502686, 1.8062744, 1.3565216)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.823696, 0.6191497, 25.061024)
+size = Vector3(0.96502686, 1.8062744, 1.3565216)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.04978, 0.07172346, 27.561218)
+size = Vector3(3.8762207, 0.63183594, 3.7120361)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.930324, 0.6191497, 28.553131)
+size = Vector3(0.96502686, 1.8062744, 1.3565216)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.823696, 0.6191497, 28.553131)
+size = Vector3(0.96502686, 1.8062744, 1.3565216)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.04978, 0.07172346, 30.875755)
+size = Vector3(3.8762207, 0.63183594, 3.7120361)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.930324, 0.6191497, 31.867668)
+size = Vector3(0.96502686, 1.8062744, 1.3565216)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.823696, 0.6191497, 31.867668)
+size = Vector3(0.96502686, 1.8062744, 1.3565216)

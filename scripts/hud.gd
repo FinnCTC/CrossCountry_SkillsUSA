@@ -8,5 +8,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.debug_value:
-		$Label2.text = str(Global.debug_value)
+	pass

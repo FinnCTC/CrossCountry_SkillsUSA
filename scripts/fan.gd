@@ -3,6 +3,8 @@ extends Area3D
 @onready var blades = $Blades
 @onready var fan_air = $Air
 
+
+
 const rot_speed = 5
 
 # Called when the node enters the scene tree for the first time.
@@ -15,8 +17,11 @@ func _process(delta: float) -> void:
 	blades.rotate_y(deg_to_rad(rot_speed))
 
 func _on_body_entered(body: Node3D) -> void:
+	var air_rotation = fan_air.global_rotation_degrees.z
 	if Input.is_action_pressed("move_jump"):
 		Global.fanTime = true
+		Global.fanRotation = air_rotation
+		print(Global.fanRotation)
 
 
 func _on_body_exited(body: Node3D) -> void:
